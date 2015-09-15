@@ -1,0 +1,30 @@
+//game stats 3.0
+//demonstrates constants and enums
+//created by James Macklin
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	//const defines alien points as a constant, caps are used to distinguish it from a variable
+	const int ALIEN_POINTS = 150;
+	int aliensKilled = 10;
+	int score = aliensKilled * ALIEN_POINTS;
+	cout << "score:" << score << endl;
+
+	//an enum is a set of unsigned int constants
+	//they are usually related and have a particular order
+	//by default they start at 0 so in this case novice is 0
+	enum difficulty { NOVICE, EASY, NORMAL, HARD, UNBEATABLE };
+	difficulty myDifficulty = EASY;
+
+	//here we give some values to the constants
+	//when there is no value given to a constant in an enum it is equal to the previous value plus 1
+	//so in this case bomber cost is initialised to 26
+	enum shipCost {FIGHTER_COST = 25, BOMBER_COST, CRUISER_COST = 50};
+	shipCost myShipCost = BOMBER_COST;
+	cout << "\nTo upgrade my ship to a cruiser, it will cost " << (CRUISER_COST - myShipCost) << " Resource Points.\n";
+
+	return 0;
+}
